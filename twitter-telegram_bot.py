@@ -4,7 +4,6 @@ from selenium.webdriver.common.keys import Keys
 import time
 from webdriver_manager.chrome import ChromeDriverManager
 import requests
-import pandas as pd
 import pyperclip
     
 
