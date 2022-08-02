@@ -21,13 +21,13 @@ time.sleep(5)
 
 #Maximize windows and scroll
 driver.maximize_window()
-driver.execute_script("window.scrollBy(0, 700);") 
+driver.execute_script("window.scrollBy(0, 1000);") 
 time.sleep(2)
 
-    #Telegram                
-Chat_ID = "-696367077"
+    #Telegram         
+Chat_ID = "-1001666208772"
 def telegram(tweet):
-    requests.post(url="https://api.telegram.org/bot5222039809:AAF42IGi0pmTcDYeSNGbarPxu4aLj7-vpHw/sendMessage",data={"chat_id":Chat_ID,"text":tweet}).json
+    requests.post(url="https://api.telegram.org/bot5222039809:AAFoeqBn2PwlJZdJVA0TB4fNFmSPA_L_SjE/sendMessage",data={"chat_id":Chat_ID,"text":tweet}).json
            
 beforetweet = ''
 #Tweet selection
@@ -49,7 +49,7 @@ while True:
 
     
     #Tweet link copy
-    article.find_element(By.XPATH,".//div[@aria-label='Share Tweet']").click()
+    article.find_element(By.XPATH,".//div[@aria-label='Tweet paylaş']").click()
     time.sleep(2)
     article.find_element(By.XPATH,"/html/body/div[1]/div/div/div[1]/div[2]/div/div/div/div[2]/div[3]/div/div/div/div[1]").click()
     time.sleep(2)        
