@@ -4,7 +4,9 @@ from selenium.webdriver.common.keys import Keys
 import time
 from webdriver_manager.chrome import ChromeDriverManager
 import requests
-import win32clipboard
+import pandas as pd
+import pyperclip
+    
 
 driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.get("https://twitter.com/CemalTheMM")
@@ -45,9 +47,9 @@ while True:
     article.find_element(By.XPATH,"/html/body/div[1]/div/div/div[1]/div[2]/div/div/div/div[2]/div[3]/div/div/div/div[1]").click()
     time.sleep(2)        
 
-    win32clipboard.OpenClipboard()
-    url = win32clipboard.GetClipboardData()
-    win32clipboard.CloseClipboard()
+    url = pyperclip.paste()
+    #url = pd.read_clipboard()
+    #win32clipboard.CloseClipboard()
     if url != beforetweet:
         beforetweet = url
         telegram(beforetweet) 
