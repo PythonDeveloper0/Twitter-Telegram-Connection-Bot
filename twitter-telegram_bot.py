@@ -3,8 +3,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
 from webdriver_manager.chrome import ChromeDriverManager
-import tkinter as tk
 import requests
+import win32clipboard
 
 driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.get("https://twitter.com/CemalTheMM")
@@ -45,8 +45,9 @@ while True:
     article.find_element(By.XPATH,"/html/body/div[1]/div/div/div[1]/div[2]/div/div/div/div[2]/div[3]/div/div/div/div[1]").click()
     time.sleep(2)        
 
-    root = tk.Tk()
-    url = root.clipboard_get()   
+    win32clipboard.OpenClipboard()
+    url = win32clipboard.GetClipboardData()
+    win32clipboard.CloseClipboard()
     if url != beforetweet:
         beforetweet = url
         telegram(beforetweet) 
