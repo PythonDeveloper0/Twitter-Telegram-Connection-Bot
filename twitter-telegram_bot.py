@@ -7,9 +7,17 @@ import requests
 import pyperclip
     
 
-driver = webdriver.Chrome(ChromeDriverManager().install())
+gChromeOptions = webdriver.ChromeOptions()
+gChromeOptions.add_argument("window-size=1920x1480")
+gChromeOptions.add_argument("disable-dev-shm-usage")
+driver = webdriver.Chrome(
+    chrome_options=gChromeOptions, executable_path=ChromeDriverManager().install()
+)
+
+#driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.get("https://twitter.com/CemalTheMM")
 time.sleep(5)
+
 
 #Maximize windows and scroll
 driver.maximize_window()
