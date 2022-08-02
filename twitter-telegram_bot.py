@@ -5,7 +5,10 @@ import time
 from webdriver_manager.chrome import ChromeDriverManager
 import requests
 import pyperclip
-    
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+
 
 gChromeOptions = webdriver.ChromeOptions()
 gChromeOptions.add_argument("window-size=1920x1480")
@@ -20,12 +23,13 @@ time.sleep(5)
 
 
 #Maximize windows and scroll
-driver.maximize_window()
-driver.execute_script("window.scrollBy(0, 1000);") 
-time.sleep(2)
-
+def scroll():
+    driver.maximize_window()
+    driver.execute_script("window.scrollBy(0, 1500);") 
+    time.sleep(2)
+scroll()
     #Telegram         
-Chat_ID = "-1001666208772"
+Chat_ID = "-1001675622092"
 def telegram(tweet):
     requests.post(url="https://api.telegram.org/bot5222039809:AAFoeqBn2PwlJZdJVA0TB4fNFmSPA_L_SjE/sendMessage",data={"chat_id":Chat_ID,"text":tweet}).json
            
@@ -49,17 +53,25 @@ while True:
 
     
     #Tweet link copy
-    article.find_element(By.XPATH,".//div[@aria-label='Share Tweet']/div").click()
-    time.sleep(2)
-    article.find_element(By.XPATH,"/html/body/div[1]/div/div/div[1]/div[2]/div/div/div/div[2]/div[3]/div/div/div/div[1]").click()
+    #WebDriverWait(article, 20).until(EC.element_to_be_clickable((By.XPATH, ".//div[@aria-label='Share Tweet']"))).click()
+    #article.find_element(By.XPATH,".//div[@aria-label='Tweet paylaş']/div").click()
+    article.find_element(By.XPATH,"./div").click()
+    time.sleep(2)                                      #Share Tweet
+    #article.find_element(By.XPATH,"/html/body/div[1]/div/div/div[1]/div[2]/div/div/div/div[2]/div[3]/div/div/div/div[1]").click()
     time.sleep(2)        
 
-    url = pyperclip.paste()
-    #url = pd.read_clipboard()
+    url = driver.current_url
+    print(url)
+    time.sleep(1)
+    #url = pyperclip.paste()
     #win32clipboard.CloseClipboard()
     if url != beforetweet:
         beforetweet = url
         telegram(beforetweet) 
-    
+        driver.get("https://twitter.com/CemalTheMM")
+    time.sleep(2)
+    driver.get("https://twitter.com/CemalTheMM")
+    time.sleep(3)
+    scroll()    
          
-    time.sleep(10)
+    time.sleep(6)
