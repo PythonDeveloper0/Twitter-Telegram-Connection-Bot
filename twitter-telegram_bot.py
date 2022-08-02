@@ -55,7 +55,7 @@ while True:
     #Tweet link copy
     #WebDriverWait(article, 20).until(EC.element_to_be_clickable((By.XPATH, ".//div[@aria-label='Share Tweet']"))).click()
     #article.find_element(By.XPATH,".//div[@aria-label='Tweet paylaş']/div").click()
-    article.find_element(By.XPATH,"./div/div/div/div[2]").click()
+    article.find_element(By.XPATH,"./div/div/div").click()
     time.sleep(2)                                      #Share Tweet
     #article.find_element(By.XPATH,"/html/body/div[1]/div/div/div[1]/div[2]/div/div/div/div[2]/div[3]/div/div/div/div[1]").click()
     time.sleep(2)        
