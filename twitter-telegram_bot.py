@@ -49,7 +49,7 @@ while True:
 
     
     #Tweet link copy
-    article.find_element(By.XPATH,".//div[@aria-label='Share Tweet']").click()
+    article.find_element(By.XPATH,".//div[@aria-label='Share Tweet']/div").click()
     time.sleep(2)
     article.find_element(By.XPATH,"/html/body/div[1]/div/div/div[1]/div[2]/div/div/div/div[2]/div[3]/div/div/div/div[1]").click()
     time.sleep(2)        
