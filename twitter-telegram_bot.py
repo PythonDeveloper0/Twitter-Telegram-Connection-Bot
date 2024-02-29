@@ -18,7 +18,7 @@ driver = webdriver.Chrome(
 )
 
 #driver = webdriver.Chrome(ChromeDriverManager().install())
-driver.get("https://twitter.com/CemalTheMM")
+driver.get("https://twitter.com/<UsernameTw>")
 time.sleep(5)
 
 
