@@ -31,7 +31,7 @@ scroll()
     #Telegram         
 Chat_ID = "-1001675622092"
 def telegram(tweet):
-    requests.post(url="https://api.telegram.org/bot5222039809:AAFoeqBn2PwlJZdJVA0TB4fNFmSPA_L_SjE/sendMessage",data={"chat_id":Chat_ID,"text":tweet}).json
+    requests.post(url="https://api.telegram.org/<Bot Key>/sendMessage",data={"chat_id":Chat_ID,"text":tweet}).json
            
 beforetweet = ''
 #Tweet selection
