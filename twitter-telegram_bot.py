@@ -47,7 +47,7 @@ while True:
             pinned = article.find_element(By.XPATH,"./div/div/div/div[1]/div/div/div/div/div[2]/div/div/div/span").text
         except:
             print("Not pinned.")
-            if article.find_element(By.XPATH,"./div/div/div/div[2]/div[2]/div[1]/div/div/div[1]/div/div/div[2]/div/div[1]/a/div/span").text == "@CemalTheMM":
+            if article.find_element(By.XPATH,"./div/div/div/div[2]/div[2]/div[1]/div/div/div[1]/div/div/div[2]/div/div[1]/a/div/span").text == "@<UsernameTw>":
                 
                 break
 
@@ -68,9 +68,9 @@ while True:
     if url != beforetweet:
         beforetweet = url
         telegram(beforetweet) 
-        driver.get("https://twitter.com/CemalTheMM")
+        driver.get("https://twitter.com/<UsernameTw>")
     time.sleep(2)
-    driver.get("https://twitter.com/CemalTheMM")
+    driver.get("https://twitter.com/<UsernameTw>")
     time.sleep(3)
     scroll()    
          
